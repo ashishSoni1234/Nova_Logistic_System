@@ -62,28 +62,35 @@ python data_loaders/load_sroie.py
 
 ## 📸 Platform Demo
 
-Here is a visual walkthrough of the Nova platform:
+Here is a visual walkthrough of the Nova platform's core features:
 
-### 1. Dashboard Overview
-![Dashboard](images/Screenshot%202026-05-23%20215427.png)
+### 1. Workflow Automation
+![Workflow Automation](images/Screenshot%202026-05-23%20215427.png)
+> **Overview:** The central hub for creating and monitoring intelligent supply chain workflows. The system dynamically routes tasks across different AI agents based on priority and context, minimizing manual intervention.
 
-### 2. Workflow Automation
-![Workflow](images/Screenshot%202026-05-23%20215432.png)
+### 2. Workflow Routing & Details
+![Workflow Details](images/Screenshot%202026-05-23%20215432.png)
+> **Overview:** An in-depth view of an active workflow. Watch as the Workflow Router agent autonomously orchestrates tasks, passes data between the Document Extractor and Exception Detector, and maintains a seamless logistics pipeline.
 
-### 3. Document Extraction
-![Documents](images/Screenshot%202026-05-23%20215440.png)
+### 3. Dashboard
+![Dashboard](images/Screenshot%202026-05-23%20215440.png)
+> **Overview:** A comprehensive, real-time snapshot of your logistics operations. Track essential metrics such as total workflows, pending approvals, active exceptions, and overall system health in one unified view.
 
-### 4. Approvals Management
-![Approvals](images/Screenshot%202026-05-23%20215459.png)
+### 4. Document Extraction
+![Document Extraction](images/Screenshot%202026-05-23%20215459.png)
+> **Overview:** The Document Extractor AI in action. It automatically ingests uploaded invoices and supply chain documents, intelligently parses the raw text, and extracts structured data for downstream processing.
 
-### 5. Exception Detection
-![Exceptions](images/Screenshot%202026-05-23%20215511.png)
+### 5. Approvals
+![Approvals](images/Screenshot%202026-05-23%20215511.png)
+> **Overview:** Streamlined management for transactions requiring human oversight. When the AI detects ambiguous data or high-value shipments, the Workflow Router flags them here for manual review and approval.
 
-### 6. Platform Settings
-![Settings](images/Screenshot%202026-05-23%20215521.png)
+### 6. Exceptions & Anomalies
+![Exceptions](images/Screenshot%202026-05-23%20215521.png)
+> **Overview:** Real-time fraud and anomaly detection. The Exception Detector agent continuously monitors purchasing patterns and delivery risks, immediately quarantining high-risk or irregular transactions.
 
-### 7. AI Query & Analysis
-![RAG Query](images/Screenshot%202026-05-23%20215530.png)
+### 7. Settings & AI Status
+![Settings](images/Screenshot%202026-05-23%20215530.png)
+> **Overview:** The system configuration page. Manage your user profile and monitor the real-time readiness of your AI agents and ChromaDB RAG (Retrieval-Augmented Generation) collections.
 
 ---
 *Built with ❤️ for modern supply chain management.*
