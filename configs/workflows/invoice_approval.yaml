@@ -1,0 +1,69 @@
+workflow:
+  name: "Invoice Approval Flow"
+  version: "1.0"
+  description: "Automated invoice processing with AI extraction, validation, and approval routing"
+  steps:
+    - id: start
+      type: start
+      next: extract_document
+
+    - id: extract_document
+      type: ai_agent
+      agent: document_extractor
+      on_success: validate_invoice
+      on_failure: flag_extraction_error
+
+    - id: validate_invoice
+      type: ai_agent
+      agent: validator
+      on_success: check_exception
+      on_failure: flag_validation_error
+
+    - id: check_exception
+      type: ai_agent
+      agent: exception_detector
+      on_success: route_approval
+      on_failure: flag_exception
+
+    - id: route_approval
+      type: condition
+      rules:
+        - if: "amount > 50000"
+          next: cfo_approval
+        - if: "amount > 10000"
+          next: manager_approval
+        - if: "amount <= 10000"
+          next: operator_approval
+
+    - id: cfo_approval
+      type: approval
+      assigned_role: Admin
+      next: complete
+
+    - id: manager_approval
+      type: approval
+      assigned_role: Manager
+      next: complete
+
+    - id: operator_approval
+      type: approval
+      assigned_role: Operator
+      next: complete
+
+    - id: flag_extraction_error
+      type: ai_agent
+      agent: exception_detector
+      next: complete
+
+    - id: flag_validation_error
+      type: ai_agent
+      agent: exception_detector
+      next: complete
+
+    - id: flag_exception
+      type: ai_agent
+      agent: exception_detector
+      next: complete
+
+    - id: complete
+      type: end

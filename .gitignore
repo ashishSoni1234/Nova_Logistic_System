@@ -1,0 +1,12 @@
+node_modules/
+venv/
+__pycache__/
+*.pyc
+.env
+chroma_db/
+uploads/
+dist/
+build/
+.DS_Store
+.vscode/
+Dataset/

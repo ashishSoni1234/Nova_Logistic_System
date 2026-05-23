@@ -1,0 +1,40 @@
+workflow:
+  name: "Shipment Validation Flow"
+  version: "1.0"
+  description: "Validate shipments for anomalies, late delivery risk, and policy compliance"
+  steps:
+    - id: start
+      type: start
+      next: detect_anomalies
+
+    - id: detect_anomalies
+      type: ai_agent
+      agent: exception_detector
+      on_success: check_delivery_risk
+      on_failure: flag_anomaly
+
+    - id: check_delivery_risk
+      type: condition
+      rules:
+        - if: "late_delivery_risk > 0.7"
+          next: escalate_delivery
+        - if: "late_delivery_risk <= 0.7"
+          next: standard_approval
+
+    - id: escalate_delivery
+      type: approval
+      assigned_role: Manager
+      next: complete
+
+    - id: standard_approval
+      type: approval
+      assigned_role: Operator
+      next: complete
+
+    - id: flag_anomaly
+      type: ai_agent
+      agent: exception_detector
+      next: complete
+
+    - id: complete
+      type: end
