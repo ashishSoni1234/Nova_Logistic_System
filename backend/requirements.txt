@@ -1,3 +1,7 @@
+# PyTorch CPU version (Crucial for Render Free Tier to avoid 2GB+ CUDA downloads and OOM kills)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+
 # Web Framework
 fastapi==0.111.0
 uvicorn[standard]==0.29.0
